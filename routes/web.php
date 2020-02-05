@@ -20,3 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/users','UsersController@index');
+Route::get('/user/{user}','UsersController@user');
+
+Route::post('/user/create','UsersController@create');
+
+Route::post('/user/delete/{user}','UsersController@delete');

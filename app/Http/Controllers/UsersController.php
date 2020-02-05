@@ -19,4 +19,26 @@ class UsersController extends Controller
         return $user;
 
     }
+
+    public function create(Request $request){
+
+        $name = $request->name;
+        $email = $request->email;
+        $pass = $request->password;
+
+        $user = new User();
+        $user->password = Hash::make($pass);
+        $user->email = $email;
+        $user->name = $name;
+        $user->save();
+
+        return json_encode("user sucessfully registered");
+    }
+
+    public function delete(User $user){
+
+        $user->delete();
+
+        return "user deleted successfully";
+    }
 }
