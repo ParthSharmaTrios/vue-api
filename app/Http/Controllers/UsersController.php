@@ -11,6 +11,12 @@ class UsersController extends Controller
 
     public function index(){
 
-        return User::all();
+        return json_encode(User::all(),true);
+    }
+
+    public function user(User $user){
+
+        return $user;
+
     }
 }
